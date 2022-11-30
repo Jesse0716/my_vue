@@ -12,26 +12,28 @@
 <script>
 import { nanoid } from 'nanoid'
 export default {
-  name: "MyHeader",
+  name: 'MyHeader',
+  //接收从App传递过来的addTodo
   props: ['addTodo'],
   data() {
     return {
+      //收集用户输入的title
       title: ''
     }
   },
   methods: {
     add() {
-      // 校验数据
-      if (!this.title.trim()) return alert('输入不能为空！')
-      // 把用户输入的数据包装为一个对象
+      //校验数据
+      if (!this.title.trim()) return alert('输入不能为空')
+      //将用户的输入包装成一个todo对象
       const todoObj = { id: nanoid(), title: this.title, done: false }
-      // 通知App去添加一个todo对象
+      //通知App组件去添加一个todo对象
       this.addTodo(todoObj)
-      // 清空输入
+      //清空输入
       this.title = ''
     }
-  }
-};
+  },
+}
 </script>
 
 <style scoped>

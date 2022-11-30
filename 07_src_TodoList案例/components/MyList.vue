@@ -1,14 +1,22 @@
 <template>
   <ul class="todo-main">
-    <my-item v-for="todoObj in todos" :key="todoObj.id" :todo="todoObj" :checkTodo="checkTodo" :deleteTodo="deleteTodo" />
+    <MyItem
+      v-for="todoObj in todos"
+      :key="todoObj.id"
+      :todo="todoObj"
+      :checkTodo="checkTodo"
+      :deleteTodo="deleteTodo"
+    />
   </ul>
 </template>
 
 <script>
-import MyItem from "./MyItem";
+import MyItem from './MyItem'
+
 export default {
-  name: "MyList",
+  name: 'MyList',
   components: { MyItem },
+  //声明接收App传递过来的数据，其中todos是自己用的，checkTodo和deleteTodo是给子组件MyItem用的
   props: ['todos', 'checkTodo', 'deleteTodo']
 }
 </script>
