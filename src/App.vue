@@ -1,23 +1,18 @@
 <template>
   <div>
-    <h1 class="title">你好啊</h1>
-    <School />
-    <Student />
+    <MyTest />
+    <MyTest2 />
+    <MyTest3 />
   </div>
 </template>
 
 <script>
-import Student from './components/Student'
-import School from './components/School'
+import MyTest from './components/MyTest.vue'
+import MyTest2 from './components/MyTest2.vue'
+import MyTest3 from './components/MyTest3.vue'
 
 export default {
   name: 'App',
-  components: { School, Student }
+  components: { MyTest, MyTest2, MyTest3 }
 }
 </script>
-
-<style scoped>
-.title {
-  color: red;
-}
-</style>
