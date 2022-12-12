@@ -1,18 +1,15 @@
 <template>
-  <div>
-    <MyTest />
-    <MyTest2 />
-    <MyTest3 />
+  <div class="container">
+    <my-search />
+    <my-list />
   </div>
 </template>
 
 <script>
-import MyTest from './components/MyTest.vue'
-import MyTest2 from './components/MyTest2.vue'
-import MyTest3 from './components/MyTest3.vue'
-
+import MyList from './components/MyList'
+import MySearch from './components/MySearch'
 export default {
-  name: 'App',
-  components: { MyTest, MyTest2, MyTest3 }
+  components: { MySearch, MyList },
+  name: 'App'
 }
 </script>
