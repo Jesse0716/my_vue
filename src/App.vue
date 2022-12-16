@@ -1,15 +1,29 @@
 <template>
   <div class="container">
-    <my-category title="美食">
-      <img src="https://v2.cn.vuejs.org/images/logo.svg" alt="">
+
+    <my-category title="游戏">
+      <template scope="atguigu">
+        <ul>
+          <li v-for="(item,index) in atguigu.games" :key="index">{{item}}</li>
+        </ul>
+      </template>
+
     </my-category>
-    <my-category :title="游戏">
-      <ul>
-        <li v-for="(item,index) in games" :key="index">{{item}}</li>
-      </ul>
+
+    <my-category title="游戏">
+      <template scope="atguigu">
+        <ol>
+          <li v-for=" (item,index) in atguigu.games" :key="index">{{item}}</li>
+        </ol>
+      </template>
+
     </my-category>
-    <my-category :title="电影">
-      <video controls src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
+
+    <my-category title="游戏">
+      <template scope="atguigu">
+        <h4 v-for="(item,index) in atguigu.games" :key="index">{{item}}</h4>
+
+      </template>
     </my-category>
   </div>
 </template>
@@ -18,20 +32,17 @@
 import MyCategory from './components/MyCategory.vue'
 export default {
   components: { MyCategory },
-  name: 'App',
-  data() {
-    return {
-      foods: ['火锅', '烧烤', '小龙虾', '牛排'],
-      games: ['超级玛丽', '冒险岛', '吃鸡', 'LOL'],
-      films: ['《教父》', '《无双》', '《活着》', '《上帝未死》']
-    }
-  }
+  name: 'App'
 }
 </script>
 
 <style scoped>
-.container {
+.container,
+.foot {
   display: flex;
   justify-content: space-around;
+}
+h4 {
+  text-align: center;
 }
 </style>
