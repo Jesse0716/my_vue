@@ -31,8 +31,12 @@ export default {
   },
   methods: {
     updateUsersList(dataObj) {
+      if (dataObj.errMsg != '') {
+        console.log('搜索失败: ', dataObj)
+      }
       console.log('我是List组件，收到数据：', dataObj)
       this.info = { ...this.info, ...dataObj }
+      console.log('当前数据：', this.info)
     }
   },
   mounted() {
