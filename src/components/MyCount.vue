@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>当前求和为：{{sum}}</h1>
+    <h1>当前求和为：{{ sum }}</h1>
+    <h1>和的十倍为：{{ bigSum }}</h1>
+    <h1>我在“{{school }}”学习《{{subject }}》</h1>
     <select v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -14,31 +16,43 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
 export default {
   name: 'MyCount',
   data() {
     return {
       n: 1,
-      sum: 0
     }
+  },
+  computed: {
+    //对象写法
+    // ...mapState({ sum: 'sum', school: 'school', subject: 'subject' })
+
+    // 数组写法
+    ...mapState(['sum', 'school', 'subject']),
+
+    // ...mapGetters({ bigSum: 'bigSum' })
+    ...mapGetters(['bigSum'])
   },
   methods: {
     increment() {
-      this.sum += this.n
+      this.$store.commit('ADD', this.n)
     },
     decrement() {
-      this.sum -= this.n
+      this.$store.commit('DEC', this.n)
+
     },
     incrementOdd() {
-      if (this.sum % 2) {
-        this.sum += this.n
-      }
+      this.$store.dispatch('addOdd', this.n)
+
     },
     incrementWait() {
-      setTimeout(() => {
-        this.sum += this.n
-      }, 500)
+      this.$store.dispatch('addWait', this.n)
+
     }
+  },
+  mounted() {
+    // console.log(this)
   }
 }
 </script>
