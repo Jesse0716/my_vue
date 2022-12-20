@@ -7,7 +7,7 @@
 
         <!-- 跳转路由并携带params参数，to的对象写法 -->
         <router-link :to="{
-					name:'Detail',
+					name:'detail',
 					query:{
 						id:item.id,
 						title:item.title
@@ -15,8 +15,6 @@
 				}">
           {{item.title}}
         </router-link>
-        <button @click="pushShow(item)">push查看</button>
-        <button @click="replaceShow(item)">replace查看</button>
       </li>
     </ul>
     <router-view></router-view>
@@ -34,29 +32,6 @@ export default {
         { id: '003', title: '消息003' },
       ]
     }
-  },
-  methods: {
-    pushShow(item) {
-      this.$router.push({
-        name: 'Detail',
-        query: {
-          id: item.id,
-          title: item.title
-        }
-      })
-    },
-    replaceShow(item) {
-      this.$router.replace({
-        name: 'Detail',
-        query: {
-          id: item.id,
-          title: item.title
-        }
-      })
-    }
-  },
-  beforeDestroy() {
-    console.log('MyMessage组件即将销毁！')
   }
 }
 </script>
