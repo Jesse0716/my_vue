@@ -12,7 +12,7 @@ export default {
   name: 'MyDetail',
   props: ['id', 'title'],
   mounted() {
-    console.log(this.$route)
+    // console.log(this.$route)
   }
 }
 </script>
