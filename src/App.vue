@@ -1,12 +1,6 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col-xs-offset-2 col-xs-8">
-        <div class="page-header">
-          <h2>Vue Router Demo</h2>
-        </div>
-      </div>
-    </div>
+    <my-banner />
     <div class="row">
       <div class="col-xs-2 col-xs-offset-2">
         <div class="list-group">
@@ -17,7 +11,6 @@
           <!-- 通过路由专属标签 -->
           <router-link class="list-group-item" active-class="active" to="/about">About</router-link>
           <router-link class="list-group-item" active-class="active" to="/home">Home</router-link>
-
         </div>
       </div>
       <div class="col-xs-6">
@@ -33,8 +26,9 @@
 </template>
 
 <script>
+import MyBanner from './components/MyBanner.vue'
 export default {
-  components: {},
   name: 'App',
+  components: { MyBanner }
 }
 </script>
